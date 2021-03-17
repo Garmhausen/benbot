@@ -53,16 +53,16 @@ async function startInterval() {
 }
 
 function stopInterval() {
-  console.log('waiting 10 minutes', DateTime.now().toLocaleString(DateTime.TIME_WITH_SECONDS));
+  console.log('waiting 3 minutes', DateTime.now().toLocaleString(DateTime.TIME_WITH_SECONDS));
   clearInterval(innerInterval);
 }
 
 function startBot() {
-  console.log('starting bot...', DateTime.now().toLocaleString(DateTime.TIME_WITH_SECONDS));
+  console.log('starting bot in 3 minutes...', DateTime.now().toLocaleString(DateTime.TIME_WITH_SECONDS));
   setInterval(() => {
     startInterval();
     setTimeout(stopInterval, 30000); // 30 seconds
-  }, 600000); // 10 minutes
+  }, 180000); // 3 minutes
 }
 
 const init = () => {
