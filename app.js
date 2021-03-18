@@ -6,7 +6,7 @@ const { DateTime } = require('luxon');
 /* 
 
 the idea is to have a bot vote every ~3 seconds for about 30 seconds total, 
-then pause for 10 minutes, and then continue voting for 30 seconds, pausing 10 mins, repeat until killed.
+then pause for 3 minutes, and then continue voting for 30 seconds, pausing 3 mins, repeat until killed.
 
 */
 
@@ -53,7 +53,7 @@ async function startInterval() {
 }
 
 function stopInterval() {
-  console.log('waiting 5 minutes', DateTime.now().toLocaleString(DateTime.TIME_WITH_SECONDS));
+  console.log('waiting 3 minutes', DateTime.now().toLocaleString(DateTime.TIME_WITH_SECONDS));
   clearInterval(innerInterval);
 }
 
@@ -62,7 +62,7 @@ function startBot() {
   setInterval(() => {
     startInterval();
     setTimeout(stopInterval, 30000); // 30 seconds
-  }, 300000); // 5 minutes
+  }, 180000); // 3 minutes
 }
 
 const init = () => {
